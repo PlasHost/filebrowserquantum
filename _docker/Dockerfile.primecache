@@ -1,1 +1,1 @@
-FROM ghcr.io/PlasHost/playwright-base:latest
+FROM ghcr.io/plashost/playwright-base:latest

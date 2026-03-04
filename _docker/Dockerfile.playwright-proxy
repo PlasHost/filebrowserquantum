@@ -1,4 +1,4 @@
-FROM ghcr.io/PlasHost/playwright-base:latest
+FROM ghcr.io/plashost/playwright-base:latest
 WORKDIR /app
 COPY [ "./_docker/src/proxy/", "./" ]
 WORKDIR /app/frontend

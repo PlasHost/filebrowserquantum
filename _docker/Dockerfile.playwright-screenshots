@@ -1,4 +1,4 @@
-FROM ghcr.io/PlasHost/playwright-base:chromium
+FROM ghcr.io/plashost/playwright-base:chromium
 WORKDIR /app
 
 WORKDIR /app/frontend
