@@ -58,7 +58,7 @@ jobs:
         with:
           images: |
             gtstef/filebrowser
-            ghcr.io/gtsteffaniak/filebrowser
+            ghcr.io/PlasHost/filebrowser
       - name: Modify tags (strip 'v' and add version tags)
         id: modify-json
         run: |
@@ -80,24 +80,24 @@ jobs:
               | ($version_parts | "\(.[0]).\(.[1])") as $major_minor
               | ($version_parts[0]) as $major
               | "gtstef/filebrowser:\($major_minor)-\($suffix)",
-                "ghcr.io/gtsteffaniak/filebrowser:\($major_minor)-\($suffix)",
+                "ghcr.io/PlasHost/filebrowser:\($major_minor)-\($suffix)",
                 "gtstef/filebrowser:\($major)-\($suffix)",
-                "ghcr.io/gtsteffaniak/filebrowser:\($major)-\($suffix)"
+                "ghcr.io/PlasHost/filebrowser:\($major)-\($suffix)"
             ] |
             # Add suffix-only tags for beta (only if tag ends with -beta)
             if any(.tags[]; split(":")[-1] | endswith("-beta")) then
               .tags += [
                 "gtstef/filebrowser:beta",
-                "ghcr.io/gtsteffaniak/filebrowser:beta"
+                "ghcr.io/PlasHost/filebrowser:beta"
               ]
             else . end |
             # Add suffix-only tags for stable (and latest) (only if tag ends with -stable)
             if any(.tags[]; split(":")[-1] | endswith("-stable")) then
               .tags += [
                 "gtstef/filebrowser:stable",
-                "ghcr.io/gtsteffaniak/filebrowser:stable",
+                "ghcr.io/PlasHost/filebrowser:stable",
                 "gtstef/filebrowser:latest",
-                "ghcr.io/gtsteffaniak/filebrowser:latest"
+                "ghcr.io/PlasHost/filebrowser:latest"
               ]
             else . end
           ')
@@ -143,7 +143,7 @@ jobs:
         with:
           images: |
             gtstef/filebrowser
-            ghcr.io/gtsteffaniak/filebrowser
+            ghcr.io/PlasHost/filebrowser
       - name: Modify tags (strip 'v' and add 'slim' if needed)
         id: modify-json-slim
         run: |
@@ -166,22 +166,22 @@ jobs:
               | ($version_parts | "\(.[0]).\(.[1])") as $major_minor
               | ($version_parts[0]) as $major
               | "gtstef/filebrowser:\($major_minor)-\($suffix)",
-                "ghcr.io/gtsteffaniak/filebrowser:\($major_minor)-\($suffix)",
+                "ghcr.io/PlasHost/filebrowser:\($major_minor)-\($suffix)",
                 "gtstef/filebrowser:\($major)-\($suffix)",
-                "ghcr.io/gtsteffaniak/filebrowser:\($major)-\($suffix)"
+                "ghcr.io/PlasHost/filebrowser:\($major)-\($suffix)"
             ] |
             # Add suffix-only tags for beta-slim (only if tag ends with -beta-slim)
             if any(.tags[]; split(":")[-1] | endswith("-beta-slim")) then
               .tags += [
                 "gtstef/filebrowser:beta-slim",
-                "ghcr.io/gtsteffaniak/filebrowser:beta-slim"
+                "ghcr.io/PlasHost/filebrowser:beta-slim"
               ]
             else . end |
             # Add suffix-only tags for stable-slim (only if tag ends with -stable-slim)
             if any(.tags[]; split(":")[-1] | endswith("-stable-slim")) then
               .tags += [
                 "gtstef/filebrowser:stable-slim",
-                "ghcr.io/gtsteffaniak/filebrowser:stable-slim"
+                "ghcr.io/PlasHost/filebrowser:stable-slim"
               ]
             else . end
           ')
